@@ -1,0 +1,36 @@
+# METAL on KCPS and TWB summary statistics of lung function on east asian populationse
+# GENOMICCONTROL ON
+AVERAGEFREQ ON
+MINMAXFREQ ON
+SCHEME STDERR
+
+# === DESCRIBE HEADERS OF INPUT FILE ===
+
+MARKER   MarkerID
+#WEIGHT   N
+ALLELE   Allele2 Allele1
+EFFECT   BETA
+STDERR   SE
+PVAL     p.value
+FREQLABEL   AF_Allele2
+SEPARATOR  TAB
+PROCESS /n/no_backup2/patel/uk_biobank/ukb_genetics/22881/resp_sumstats/SAIGE_FEV1_INFO.txt
+
+# === DESCRIBE HEADERS OF INPUT FILE ===
+
+MARKER   rsid
+#WEIGHT   n
+ALLELE   effect_allele other_allele
+EFFECT   beta
+STDERR   standard_error
+PVAL     p_value
+FREQLABEL   effect_allele_frequency
+SEPARATOR  TAB
+PROCESS /n/no_backup2/patel/uk_biobank/ukb_genetics/22881/resp_sumstats/Taiwan_FEV1_GCST90278626.tsv
+
+
+# === OUTPUT FILE PREFIX, HAS TO END WITH '_ .tbl'
+OUTFILE metaanalysis/fev1_eas_tri1_het_v6 .tbl
+ADDFILTER MAF > 0.01
+ANALYZE HETEROGENEITY
+QUIT

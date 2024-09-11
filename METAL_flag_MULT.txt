@@ -1,0 +1,40 @@
+# METAL on east asian metaanalysis and Shrine et al.
+# GENOMICCONTROL ON
+AVERAGEFREQ ON
+MINMAXFREQ ON
+SCHEME STDERR
+TRACKPOSITIONS ON
+
+# === DESCRIBE HEADERS OF INPUT FILE ===
+
+MARKER   MarkerName
+#WEIGHT   N
+ALLELE   Allele1 Allele2
+EFFECT   Effect
+STDERR   StdErr
+PVAL     P-value
+FREQLABEL   Freq1
+SEPARATOR  TAB
+CHROMOSOME CHR
+POSITION BP
+PROCESS /metaanalysis/fev1_eas_tri1_het_v61_clean.tbl
+
+# === DESCRIBE HEADERS OF INPUT FILE ===
+
+MARKER   variant_id
+#WEIGHT   N
+ALLELE   effect_allele other_allele
+EFFECT   beta
+STDERR   se
+PVAL     p_value
+FREQLABEL   effect_allele_frequency
+SEPARATOR  TAB
+CHROMOSOME chromosome
+POSITION base_pair_location
+PROCESS /Shrine_FEV1_multiancestry_GRCh372.tsv
+
+# === OUTPUT FILE PREFIX, HAS TO END WITH '_ .tbl'
+OUTFILE /metaanalysis/fev1_multi_hetpos_v6 .tbl
+ADDFILTER MAF > 0.01
+ANALYZE HETEROGENEITY
+QUIT
