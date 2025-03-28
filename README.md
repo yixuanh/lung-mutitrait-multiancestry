@@ -11,7 +11,7 @@ This repository provides a framework for how to derive PRSxtra for your own phen
 For our analysis approach, we used the classical approach using effect size estimates and standard errors
 
 ## 2. Multi-trait analysis within ancestry groups
-`21_mtag.sh` provides the generalized script for running MTAG. You can find more information about the software from their [github page](https://github.com/JonJala/mtag). 
+`2_mtag.sh` provides the generalized script for running MTAG. You can find more information about the software from their [github page](https://github.com/JonJala/mtag). 
 
-After running MTAG, you can generate polygenic risk scores using `22_PRS-cs.sh`. Then you can run `regularization.R` to get PRS-xt.
+After running MTAG, you can generate polygenic risk scores using `PRS-cs.sh`. Then you can run `regularization.R` to get PRS-xt.
 
