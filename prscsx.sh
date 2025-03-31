@@ -1,4 +1,12 @@
 #!/bin/bash
+#SBATCH -n 1                               # Request one node (if you request more than one core with -c, also using
+                                           # -N 1 means all cores will be on the same node)
+#SBATCH -t 0-11:05                          # Runtime in D-HH:MM format
+#SBATCH -p short                           # Partition to run in
+#SBATCH --mem=5GB                          # Memory total in MB (for all cores)
+#SBATCH -o output                # File to which STDOUT will be written, including job ID
+#SBATCH -e error                 # File to which STDERR will be written, including job ID
+#SBATCH --mail-type=ALL                    # Type of email notification- BEGIN,END,FAIL,ALL
 
 export MKL_NUM_THREADS=1
 export NUMEXPR_NUM_THREADS=1
