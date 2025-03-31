@@ -3,7 +3,7 @@
 
 This repository provides a generalized framework for how to derive PRSxtra for your own phenotype of interest and phenotype. Please refer to our manuscript for details "Multi-trait and multi-ancestry genetic analysis of comorbid lung diseases and traits improves genetic discovery and polygenic risk prediction" He Y, Lu W, Jee YH, et al. medRxiv, DOI: https://doi.org/10.1101/2024.08.25.24312558
 
-`regularization.R` provides the script for fitting a regularization regression model on a set of scores for a specific phenotype and population. This script will also output prediction performance for the given phenotype.
+`regularization.R` provides the script for fitting a regularization regression model on a set of scores for a specific phenotype and population. This script will also output prediction performance for the given phenotype. This script will require the phenotype file (with the headers `ID`, `pheno`), a list of IDs for training and testing (`ID_train.csv` and `ID_test.csv`, and a compiled PRS file (with the headers `ID`, `PRS1`, `PRS2`,...).  
 
 ## 1. Meta-analysis of ancestry-specific summary statistics 
 If needed, please conduct ancestry-specific meta-analysis. `1_metal.txt` and `1_runmetal.sh` provide the generalized script for running METAL. You can find more information about the software from their [wiki](https://genome.sph.umich.edu/wiki/METAL_Documentation).
