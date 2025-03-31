@@ -17,9 +17,9 @@ python2.7 MTAG/mtag/mtag.py \
 --ld_ref_panel $ldref_dir \
 --force
 
-#####clumping GWAS and MTAG for number of lead snps
+#####clumping results for number of lead snps
 bfilepath='/path/to/ld'
-clumppath='/path/to/GWASMTAG/sumstats'
+clumppath='/path/to/sumstats'
 outputpath='path/of/clumped/output'
 
 module load gcc/6.2.0 plink2/1.90
