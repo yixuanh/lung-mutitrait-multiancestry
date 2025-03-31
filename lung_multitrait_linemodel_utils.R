@@ -1,4 +1,4 @@
-source('~/Dropbox (Partners HealthCare)/github_repo/aou_gwas/R/constants.R')
+source('~/github_repo/aou_gwas/R/constants.R')
 packages = c('GGally', 'reshape2', 'data.table', 'scales', 'Matrix', 'ggplot2', 'extrafont', 'gridExtra', 'grDevices', 'grid',
              'RCurl', 'tidyverse',  'devtools', 'broom', 'plotly', 'slackr', 'magrittr', 'gapminder', 'readr',
              'purrr', 'skimr', 'gganimate', 'gghighlight', 'plotROC', 'naniar', 'BiocManager', 'cowplot', 'corrplot', 'corrr', 'ggridges', 'RColorBrewer',
@@ -551,9 +551,9 @@ library(GenomicRanges)
 
 annotate_genes <- function(data, ref_genome='GRCh37'){
   if(ref_genome == 'GRCh37'){
-    gtf_path <- '~/Dropbox (Partners HealthCare)/analysis/lung_function_pleiotropy/paper/Homo_sapiens.GRCh37.75.gtf'
+    gtf_path <- '~/analysis/lung_function_pleiotropy/paper/Homo_sapiens.GRCh37.75.gtf'
   }else{
-    gtf_path <- '~/Dropbox (Partners HealthCare)/analysis/lung_function_pleiotropy/paper/Homo_sapiens.GRCh38.105.gtf'
+    gtf_path <- '~/analysis/lung_function_pleiotropy/paper/Homo_sapiens.GRCh38.105.gtf'
   }
 
   gtf_data <- import(gtf_path, format = "gtf")
