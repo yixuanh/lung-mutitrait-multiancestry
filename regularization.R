@@ -2,13 +2,11 @@ library(data.table)
 library(tidyverse)
 library(bigrquery)
 library(glmnet)
-library(pROC)
-library(gridExtra)
-library(ggplot2)
 
 df=fread('~/phenotype.csv')
 prslist=fread('~/comipledPRS/Asthma/compiled_PRSCSX.csv')
 df=merge(df,prslist,by='ID',all.x=T)
+df[,c(2:ncol(df))]=scale(df[,c(2:ncol(df))]) #scale all PRS scores
 
 train=fread('/ID_train.csv')
 test=fread('/ID_test.csv')
@@ -16,10 +14,10 @@ test=fread('/ID_test.csv')
 train=na.omit(dfanc[which(dfanc$ID%in%train$x),])
 test=na.omit(dfanc[which(dfanc$ID%in%test$x),])
 
-x_train <- as.matrix(train)
+x_train <- as.matrix(train[, grep("^PRS", colnames(train))])
 y_train <- train$phenotype
 
-x_test <- as.matrix(test)
+x_test <- as.matrix(train[, grep("^PRS", colnames(x_test))])
 y_test <- test$phenotype
 
 num_folds <- 10
