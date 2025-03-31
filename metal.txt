@@ -14,7 +14,7 @@ STDERR   SE
 PVAL     p.value
 FREQLABEL   AF_Allele2
 SEPARATOR  TAB
-PROCESS /n/no_backup2/patel/uk_biobank/ukb_genetics/22881/resp_sumstats/SAIGE_FEV1_INFO.txt
+PROCESS ~/KCSP2_FEV1.txt
 
 # === DESCRIBE HEADERS OF INPUT FILE ===
 
@@ -26,11 +26,11 @@ STDERR   standard_error
 PVAL     p_value
 FREQLABEL   effect_allele_frequency
 SEPARATOR  TAB
-PROCESS /n/no_backup2/patel/uk_biobank/ukb_genetics/22881/resp_sumstats/Taiwan_FEV1_GCST90278626.tsv
+PROCESS ~/TWB_FEV1.tsv
 
 
 # === OUTPUT FILE PREFIX, HAS TO END WITH '_ .tbl'
-OUTFILE metaanalysis/fev1_eas_tri1_het_v6 .tbl
+OUTFILE metaanalysis/FEV1_eas_tri1_het_ .tbl
 ADDFILTER MAF > 0.01
 ANALYZE HETEROGENEITY
 QUIT
