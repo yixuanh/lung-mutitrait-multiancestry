@@ -1,24 +1,31 @@
-SUMSTAT_dir="/path/to/sumstats"
-sumstat_files=$(ls $formatted_dir/*_formatted.txt | tr '\n' ',' | sed 's/,$//')
+#!/bin/bash
 
-ldref_dir="/path/to/ldref_directory" #change to ancestry specific LD reference path
+export MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
+export OMP_NUM_THREADS=1
 
-#get weights using PRScsx
-python3 PRScsx.py \
-               --ref_dir=/ldrefs \
-               --bim_prefix=/hapmap_aou \
-               --sst_file=$SUMSTAT_dir \
-               --n_gwas=32658,18173,341204,1376071 \
-               --pop=AFR,AMR,EAS,EUR \
-               --out_dir=/mnt/data/output/ \
-               --meta=True \
-               --out_name=  
-               
+module load gcc/6.2.0 python/3.6.0
+cd /n/no_backup2/patel/yixuan/PRScsx
+python3 PRScsx.py --ref_dir=~/PRScs/ \
+--bim_prefix=~/aou_bim/hapmap_aou \
+--sst_file=~/pheno_AFR.txt,\
+~/pheno_AMR.txt,\
+~/pheno_EAS.txt,\
+~/pheno_EUR.txt \
+--n_gwas=11111,22222,33333,44444 \
+--pop=AFR,AMR,EUR,EAS \
+--out_dir=~/output/ \
+--out_name=pheno \
+--chrom=${1} \
+--meta=True
+
 #score PRS using PLINK 
-for anc in AFR AMR EAS EUR; do               
+module load plink2
+
+for anc in AFR AMR EAS EUR META; do               
   for chr in {1..22}; do
-    plink2 --bfile genos/aou_v7_chr"$chr" \
-          --score SNPweights/PRSCSX/"$chr"/"$anc"/_pst_eff_a1_b0.5_phiauto_chr"$chr".txt 2 4 6 cols=+scoresums \
-          --out PRS/V3/Asthma/PRSCSX/"$anc"/chr"$chr"_score_"$anc"
+    plink2 --bfile genos/v7_chr"$chr" \
+          --score output/pheno_"$anc"_pst_eff_a1_b0.5_phiauto_chr"$chr".txt 2 4 6 cols=+scoresums \
+          --out PRS/"$anc"/chr"$chr"_score
   done
 done
