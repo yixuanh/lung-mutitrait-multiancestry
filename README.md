@@ -1,8 +1,8 @@
 # Analysis pipeline 
 
-Code for "Multi-trait and multi-ancestry genetic analysis of comorbid lung diseases and traits improves genetic discovery and polygenic risk prediction" He Y, Lu W, Jee YH, et al. medRxiv, DOI: https://doi.org/10.1101/2024.08.25.24312558
 
-This repository provides a framework for how to derive PRSxtra for your own phenotype of interest and phenotype.
+This repository provides a generalized framework for how to derive PRSxtra for your own phenotype of interest and phenotype. Please refer to "Multi-trait and multi-ancestry genetic analysis of comorbid lung diseases and traits improves genetic discovery and polygenic risk prediction" He Y, Lu W, Jee YH, et al. medRxiv, DOI: https://doi.org/10.1101/2024.08.25.24312558
+
 `regularization.R` provides the script for fitting a regularization regression model on a set of scores for a specific phenotype and population. This script will also output prediction performance for the given phenotype.
 
 ## 1. Meta-analysis of ancestry-specific summary statistics 
