@@ -1,7 +1,7 @@
-source('~/Dropbox (Partners HealthCare)/github_repo/random_scripts/lung_multitrait_linemodel_utils.R')
+source('~/github_repo/random_scripts/lung_multitrait_linemodel_utils.R')
 
 ### Update raw linemodel figure
-root_path = '~/Dropbox (Partners HealthCare)/analysis/lung_function_pleiotropy/comparison_data/'
+root_path = '~/analysis/lung_function_pleiotropy/comparison_data/'
 pheno1s <- c(rep('asthma', 7), rep('copd', 6), rep('lung_cancer', 5))
 pheno2s <- c('copd', 'lung_cancer', 'eosinophil', 'neutrophil', 'smkinit', 'spirometry', 'cigday',
              'lung_cancer', 'eosinophil', 'neutrophil', 'smkinit', 'spirometry', 'cigday',
@@ -35,7 +35,7 @@ for(pop in pops){
 }
 
 ### Main Figure 3b and 3c
-root_path = '~/Dropbox (Partners HealthCare)/analysis/lung_function_pleiotropy/comparison_data/'
+root_path = '~/analysis/lung_function_pleiotropy/comparison_data/'
 results1 <- run_analysis_v2(
   pheno1='copd',
   pheno2='cigday',
